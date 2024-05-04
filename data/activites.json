@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Drink Enough Water",
+    "image": "../assets/activities/water.png"
+  },
+  {
+    "name": "Do Simple Exercise",
+    "image": "../assets/activities/jogging.png"
+  },
+  {
+    "name": "Do Simple Exercise",
+    "image": "../assets/activities/mind.png"
+  }
+]

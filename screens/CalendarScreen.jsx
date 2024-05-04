@@ -3,7 +3,7 @@ import { Text, View } from 'react-native'
 
 const CalendarScreen = () => {
   return (
-   <View>
+   <View className="bg-white h-[25vh] w-screen">
     <Text>
         Calendar
     </Text>
