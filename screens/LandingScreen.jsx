@@ -1,8 +1,15 @@
 import React from "react";
-import { Button, Image, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-const LandingScreen = () => {
+const LandingScreen = ({ navigation }) => {
   return (
     <View>
       <LinearGradient
@@ -15,10 +22,7 @@ const LandingScreen = () => {
             resizeMode="contain"
             className="h-1/3 mb-10"
           />
-          <Text
-            className="text-[20px] font-medium text-[#3C548D] leading-[28px] tracking-wider"
-            style={styles.karla}
-          >
+          <Text className="text-[20px] font-medium text-[#3C548D] leading-[28px] tracking-wider">
             Welcome to
           </Text>
           <Image
@@ -26,32 +30,30 @@ const LandingScreen = () => {
             resizeMode="contain"
             className="h-10 mt-4"
           />
-          <LinearGradient
-            colors={["#87DCCB", "#D6BDFF"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            className="w-[320px] p-[12px] rounded-3xl mt-12"
-          >
-            <Text
-              className="text-white text-center text-[16px] font-bold"
-              style={styles.karla}
+          <TouchableOpacity onPress={() => navigation.navigate("MainApp")}>
+            <LinearGradient
+              colors={["#87DCCB", "#D6BDFF"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              className="w-[320px] p-[12px] rounded-3xl mt-12"
+              onPress={() => navigation.replace("Home")}
             >
-              Sign up
-            </Text>
-          </LinearGradient>
+              <Text className="text-white text-center text-[16px] font-bold">
+                Sign up
+              </Text>
+            </LinearGradient>
+          </TouchableOpacity>
 
-          <View className="w-[320px] p-[12px] bg-twhite border-[1px] border-[#D6BDFF] rounded-3xl mt-4">
-            <Text
-              className="text-white text-center text-[16px] font-bold text-[#3C548D]"
-              style={styles.karla}
-            >
-              Sign In with Google
-            </Text>
-          </View>
+          <TouchableOpacity onPress={() => navigation.replace("Home")}>
+            <View className="w-[320px] p-[12px] bg-twhite border-[1px] border-[#D6BDFF] rounded-3xl mt-4">
+              <Text className="text-white text-center text-[16px] font-bold text-[#3C548D]">
+                Sign In with Google
+              </Text>
+            </View>
+          </TouchableOpacity>
+
           <View className="w-[320px] mt-6">
-            <Text className="text-[#3C548D] text-center" style={styles.karla}>
-              Login
-            </Text>
+            <Text className="text-[#3C548D] text-center">Login</Text>
           </View>
         </View>
       </LinearGradient>
@@ -59,7 +61,3 @@ const LandingScreen = () => {
   );
 };
 export default LandingScreen;
-
-const styles = StyleSheet.create({
-  karla: { fontFamily: "Karla" },
-});
