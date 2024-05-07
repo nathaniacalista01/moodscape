@@ -32,7 +32,7 @@ const LandingScreen = ({ navigation }) => {
           Welcome to
         </Text>
         <Image
-          source={require("../assets/image.png")}
+          source={require("../assets/moodscape.png")}
           resizeMode="contain"
           className="h-10 mt-4"
         />
