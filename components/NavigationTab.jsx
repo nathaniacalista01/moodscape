@@ -2,10 +2,11 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/HomeScreen";
 import CalendarScreen from "../screens/CalendarScreen";
-import ForumScreen from "../screens/ForumScreen";
 import StatisticsScreen from "../screens/StatisticsScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import { Image } from "react-native";
+import ForumScreen from "../screens/ForumScreen";
+import JournalStackNavigator from "./ForumStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +19,7 @@ const NavigationTab = () => {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={JournalStackNavigator}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Image

@@ -5,7 +5,7 @@ import ActivityScrollView from "../components/ActivityScrollView";
 import MoodOptions from "../components/MoodOptions";
 import MeditationSongs from "../components/MeditationSongs";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [fontsLoaded] = useFonts({
     Karla: require("../assets/fonts/Karla.ttf"),
   });
@@ -33,7 +33,7 @@ const HomeScreen = () => {
         >
           Hello, Nate
         </Text>
-        <MoodOptions />
+        <MoodOptions navigation={navigation} />
         <View className="flex flex-col">
           <Text
             className="text-[20px] text-[#3C548D] font-bold text-left"
