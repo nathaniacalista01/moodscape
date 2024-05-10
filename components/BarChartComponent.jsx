@@ -22,10 +22,9 @@ const BarChartComponent = ({ barData }) => {
         data={barData}
         yAxisThickness={0}
         xAxisThickness={0}
-        width={240}
-        fromZero={true}
-        xAxisInterval={1} // Menampilkan setiap label pada sumbu X
-        formatXLabel={(value) => (value % 2 === 0 ? value : "")}
+        width={250}
+        height={300}
+        xAxisInterval={2}
       />
     </View>
   );
