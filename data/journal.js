@@ -40,4 +40,12 @@ export const JOURNALS = [
     title: "",
     content: "",
   },
+  {
+    id: 5,
+    date: "5/2/2024",
+    mood: "HAPPY",
+    mood_image: require("../assets/moods/happy.png"),
+    title: "Mood Happy",
+    content: "",
+  },
 ];
