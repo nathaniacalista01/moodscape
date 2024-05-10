@@ -1,14 +1,9 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import React from "react";
+import { Text, View } from "react-native";
+import CustomCalendar from "../components/Calendar";
 
 const CalendarScreen = () => {
-  return (
-   <View className="bg-white h-[25vh] w-screen">
-    <Text>
-        Calendar
-    </Text>
-   </View>
-  )
-}
+  return <CustomCalendar />;
+};
 
-export default CalendarScreen
+export default CalendarScreen;
