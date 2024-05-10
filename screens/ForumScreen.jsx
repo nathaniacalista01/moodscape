@@ -19,13 +19,11 @@ const ForumScreen = ({ navigation }) => {
           <SearchBox />
 
           {FORUMS.map((forum) => {
-            return <TopicCard forum={forum} isReply={false} />;
+            return <TopicCard key={forum.id} forum={forum} isReply={false} />;
           })}
         </LinearGradient>
       </ScrollView>
-      <TouchableOpacity
-        className="bg-[#3C548D] rounded-full absolute w-[40px] h-[40px] right-5 bottom-5 flex items-center justify-center"
-      >
+      <TouchableOpacity className="bg-[#3C548D] rounded-full absolute w-[40px] h-[40px] right-5 bottom-5 flex items-center justify-center">
         <Text className="text-white font-bold text-[30px]">+</Text>
       </TouchableOpacity>
     </View>

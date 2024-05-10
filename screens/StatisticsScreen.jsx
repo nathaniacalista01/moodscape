@@ -1,9 +1,8 @@
 import React from "react";
-import { Text, View, ScrollView, Dimensions, Image } from "react-native";
+import { Text, View, ScrollView} from "react-native";
 import { JOURNALS } from "../data/journal";
 import JournalingStreak from "../components/JournalingStreak";
 import { LinearGradient } from "expo-linear-gradient";
-import { BarChart, PieChart } from "react-native-gifted-charts";
 import { parse, format } from "date-fns";
 import PieChartComponent from "../components/PieChartComponent";
 import BarChartComponent from "../components/BarChartComponent";
@@ -37,7 +36,6 @@ const StatisticsScreen = () => {
         maxCount = dayCount[day];
       }
     }
-    console.log("Ini day count", dayCount);
     return { dayCount, maxDay };
   }
   const countMoods = () => {

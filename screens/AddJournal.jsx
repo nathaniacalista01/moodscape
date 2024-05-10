@@ -1,23 +1,42 @@
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { Button, Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Button,
+  Image,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { JOURNALS } from "../data/journal";
 
 const AddJournal = ({ route, navigation }) => {
   const [fontsLoaded] = useFonts({
     Karla: require("../assets/fonts/Karla.ttf"),
   });
-  // console.log(route.params)
-  const { image } = route.params;
+  const { mood, image } = route.params;
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
   const currentDate = new Date();
   const options = { month: "long", day: "2-digit", year: "numeric" };
   const dateString = currentDate.toLocaleDateString("en-US", options);
-  // const journal = JOURNALS.filter(
-  //   (journal) => journal.date === currentDate.toLocaleDateString()
-  // );
+  const handleSave = () => {
+    const newJournal = {
+      id: JOURNALS.length - 1,
+      date: currentDate.toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+      }),
+      mood: mood,
+      mood_image: image,
+      title: title,
+      content: content,
+    };
+    JOURNALS.push(newJournal)
+  };
   return (
     <ScrollView className="h-screen w-full px-8 flex flex-col">
       <View className="flex flex-row mt-14 justify-between items-center">
@@ -27,19 +46,21 @@ const AddJournal = ({ route, navigation }) => {
             className="w-[24px] h-[24px]"
           />
         </TouchableOpacity>
-        <LinearGradient
-          colors={["#B6CBFF", "#FFB0CA"]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          className="py-[8px] px-[24px] rounded-full"
-        >
-          <Text
-            className="text-white font-bold"
-            style={{ fontFamily: "Karla" }}
+        <TouchableOpacity onPress={() => handleSave()}>
+          <LinearGradient
+            colors={["#B6CBFF", "#FFB0CA"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            className="py-[8px] px-[24px] rounded-full"
           >
-            Save
-          </Text>
-        </LinearGradient>
+            <Text
+              className="text-white font-bold"
+              style={{ fontFamily: "Karla" }}
+            >
+              Save
+            </Text>
+          </LinearGradient>
+        </TouchableOpacity>
       </View>
       <View className="w-full flex flex-col mt-6">
         <Text

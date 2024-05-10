@@ -29,7 +29,7 @@ const JournalingStreak = ({ journals }) => {
         Journaling Streaks
       </Text>
       <View className="flex flex-row justify-between gap-x-2 mt-4">
-        {journals.map((journal) => {
+        {journals.map((journal, index) => {
           const dateObject = parse(journal.date, "M/d/yyyy", new Date());
           const day = dateObject.getDate();
           const month = dateObject.toLocaleString("en-US", {
@@ -37,7 +37,7 @@ const JournalingStreak = ({ journals }) => {
           }); // 'short' gives the abbreviated month name
           if (journal.mood_image) {
             return (
-              <View className="flex flex-col items-center">
+              <View key={index} className="flex flex-col items-center">
                 <Image
                   source={journal.mood_image}
                   className="w-[30px] h-[35px]"
@@ -55,7 +55,10 @@ const JournalingStreak = ({ journals }) => {
             );
           } else {
             return (
-              <View className="flex flex-col items-center justify-center">
+              <View
+                key={index}
+                className="flex flex-col items-center justify-center"
+              >
                 <Image
                   source={require("../assets/moods/blank.png")}
                   className="w-[30px] h-[35px]"

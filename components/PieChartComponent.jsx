@@ -88,6 +88,7 @@ const PieChartComponent = ({ total, moodCounts, pieData }) => {
         {moods.map((mood) => {
           return (
             <MoodPercentage
+              key={mood.name}
               source={mood.source}
               name={mood.name}
               percentage={mood.percentage}

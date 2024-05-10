@@ -89,7 +89,7 @@ const TopicCard = ({ forum, isReply }) => {
       </View>
       {replies.length > 0 &&
         replies.map((reply) => {
-          return <TopicCard forum={reply} isReply={true} />;
+          return <TopicCard key={reply.id} forum={reply} isReply={true} />;
         })}
     </LinearGradient>
   );

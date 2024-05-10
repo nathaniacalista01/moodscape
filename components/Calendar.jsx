@@ -58,18 +58,15 @@ const CustomDay = ({ date, state, marking, onPress }) => {
 };
 const CustomCalendar = () => {
   const [journal, setJournal] = useState();
-  const [selectedDay, setSelectedDay] = useState();
   const markedDates = JOURNALS.reduce((acc, journal) => {
-    // Safely parse the date from the expected format "M/D/YYYY"
     const date = parse(journal.date, "M/d/yyyy", new Date());
-    // Format the date as "YYYY-MM-DD"
     const formattedDate = format(date, "yyyy-MM-dd");
-    let color = "gray"; // Default color
+    let color = "gray";
 
     if (journal.mood === "AMAZE") color = "#DFCBFF";
     if (journal.mood === "SAD") color = "#B4E8FE";
     if (journal.mood === "MEH") color = "#BAFBCC";
-    if (journal.mood === "GOOD") color = "#FFE7AA";
+    if (journal.mood === "HAPPY") color = "#FFE7AA";
     if (journal.mood === "AWFUL") color = "#F9C0BA";
 
     acc[formattedDate] = {
@@ -82,7 +79,6 @@ const CustomCalendar = () => {
   }, {});
 
   const showJournal = (date) => {
-    // Convert the date from "yyyy-MM-dd" to "M/d/yyyy"
     const formattedDate = format(
       parse(date, "yyyy-MM-dd", new Date()),
       "M/d/yyyy"
@@ -90,11 +86,8 @@ const CustomCalendar = () => {
     const filteredJournals = JOURNALS.filter(
       (journal) => journal.date === formattedDate
     );
-    console.log("Journals for ", date, ": ", filteredJournals);
-    // Optionally, update state or handle display of filtered journals here
     setJournal(filteredJournals.length > 0 ? filteredJournals[0] : null);
   };
-  console.log("Ini marked dates ; ", markedDates);
 
   return (
     <View className="bg-white w-full flex flex-col" style={{ flex: 1 }}>
